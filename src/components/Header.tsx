@@ -3,7 +3,7 @@ import { MapPin } from 'phosphor-react';
 import styled from '@emotion/styled';
 import theme from '../styles/theme';
 import Logo from '/Logo.svg';
-import { CartButton } from './Button';
+import CartButton from './CartButton';
 
 const Container = styled('div')({
     display: 'flex',
@@ -31,7 +31,7 @@ const Header = () => {
             <Location startIcon={<MapPin color={theme.customColor.purple} weight="fill" />}>
                 Porto Alegre, RS
             </Location>
-            <CartButton />
+            <CartButton typeColor="yellow" />
         </Stack>
     </Container>;
 }
