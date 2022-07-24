@@ -21,13 +21,47 @@ interface CustomColor {
     white: string;
 }
 
+interface CustomTypography {
+    fontFamily: string;
+    fontSize: string;
+    lineHeight: string;
+    fontWeight: string;
+}
+
 declare module '@mui/material/styles' {
     interface Theme {
         customColor: CustomColor;
     }
-
     interface ThemeOptions {
         customColor: CustomColor;
+    }
+}
+
+declare module '@mui/material/styles/createTypography' {
+    interface Typography {
+        titleXL: CustomTypography;
+        titleL: CustomTypography;
+        titleM: CustomTypography;
+        titleS: CustomTypography;
+        titleXS: CustomTypography;
+        regularL: CustomTypography;
+        regularM: CustomTypography;
+        regularS: CustomTypography;
+        boldL: CustomTypography;
+        boldM: CustomTypography;
+    }
+    
+    interface TypographyOptions {
+        titleXL: CustomTypography;
+        titleL: CustomTypography;
+        titleM: CustomTypography;
+        titleS: CustomTypography;
+        titleXS: CustomTypography;
+        regularL: CustomTypography;
+        regularM: CustomTypography;
+        regularS: CustomTypography;
+        boldL: CustomTypography;
+        boldM: CustomTypography;
     }
 }
 
@@ -53,7 +87,66 @@ const theme = createTheme({
         white: "#FFFFFF",
     },
     typography: {
-        fontFamily: "Roboto, sans-serif",
+        titleXL: {
+            fontSize: "3rem",
+            fontWeight: "800",
+            fontFamily: "'Baloo 2', cursive",
+            lineHeight: "4rem",
+        },
+        titleL: {
+            fontSize: "2rem",
+            fontWeight: "800",
+            fontFamily: "'Baloo 2', cursive",
+            lineHeight: "2.6rem",
+        },
+        titleM: {
+            fontSize: "1.5rem",
+            fontWeight: "800",
+            fontFamily: "'Baloo 2', cursive",
+            lineHeight: "1.95rem",
+        },
+        titleS: {
+            fontSize: "1.25rem",
+            fontWeight: "700",
+            fontFamily: "'Baloo 2', cursive",
+            lineHeight: "1.625rem",
+        },
+        titleXS: {
+            fontSize: "1.125rem",
+            fontWeight: "700",
+            fontFamily: "'Baloo 2', cursive",
+            lineHeight: "1.46rem",
+        },
+        regularL: {
+            fontSize: "1.25rem",
+            fontWeight: "400",
+            fontFamily: "'Roboto', sans-serif",
+            lineHeight: "1.625rem",
+        },
+        regularM: {
+            fontSize: "1rem",
+            fontWeight: "400",
+            fontFamily: "'Roboto', sans-serif",
+            lineHeight: "1.3rem",
+        },
+        regularS: {
+            fontSize: "0.875rem",
+            fontWeight: "400",
+            fontFamily: "'Roboto', sans-serif",
+            lineHeight: "1.1rem",
+        },
+        boldL: {
+            fontSize: "1.25rem",
+            fontWeight: "700",
+            fontFamily: "'Roboto', sans-serif",
+            lineHeight: "1.625rem",
+        },
+        boldM: {
+            fontSize: "1rem",
+            fontWeight: "700",
+            fontFamily: "'Roboto', sans-serif",
+            lineHeight: "1.3rem",
+        }
     },
 });
 

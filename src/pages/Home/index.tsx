@@ -1,11 +1,13 @@
 import Header from "../../components/Header";
+import Banner from "./components/Banner";
+import Menu from "./components/Menu";
 
-const Home = () => {
+export default function Home() {
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <Banner />
+      <Menu />
+    </>
   );
 }
-
-export default Home;

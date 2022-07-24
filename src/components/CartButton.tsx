@@ -16,11 +16,7 @@ const StyledBadge = styled(Badge)<BadgeProps>({
     }
 });
 
-export default function CartButton({
-    typeColor,
-    quantity = 0,
-    ...props
-}: CardButtonProps) {
+const CartButton = ({typeColor, quantity = 0, classes, ...props}: CardButtonProps) => {
     const lightColor = typeColor === 'purple' ? theme.customColor.purpleLight : theme.customColor.yellowLight;
     const darkColor = typeColor === 'purple' ? theme.customColor.purpleDark : theme.customColor.yellowDark;
 
@@ -41,7 +37,4 @@ export default function CartButton({
     );
 }
 
-export function Button() {
-    return <div />;
-}
-
+export default CartButton;
