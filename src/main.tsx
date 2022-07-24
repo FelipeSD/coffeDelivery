@@ -9,9 +9,9 @@ const inputGlobalStyles = <GlobalStyles styles={styles} />
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      {inputGlobalStyles}
-      <App />
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        {inputGlobalStyles}
+        <App />
+      </ThemeProvider>
   </React.StrictMode>
 )

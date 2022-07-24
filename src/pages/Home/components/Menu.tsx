@@ -1,9 +1,8 @@
-import styled from "@emotion/styled";
-import theme from "../../../styles/theme";
+import { styled } from "@mui/material"
 
-const Title = styled('h3')({
+const Title = styled('h3')(({ theme }) => ({
     ...theme.typography.titleL
-});
+}));
 
 export default function Menu() {
     return (

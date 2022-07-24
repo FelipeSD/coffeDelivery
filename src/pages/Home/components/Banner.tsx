@@ -1,46 +1,21 @@
-import { Grid, Stack } from "@mui/material";
+import { Grid, Stack, styled, useTheme } from "@mui/material";
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
-import styled from "@emotion/styled";
-import theme from "../../../styles/theme";
 import Cafe from "../../../assets/Cafe.svg";
-
-const items = [
-    {
-        text: "Compra simples e segura",
-        icon: <ShoppingCart color={theme.customColor.white} />,
-        color: theme.customColor.purple,
-    },
-    {
-        text: "Embalagem mantém o café intacto",
-        icon: <Package color={theme.customColor.white} />,
-        color: theme.customColor.baseText
-    },
-    {
-        text: "Entrega rápida e rastreada",
-        icon: <Timer color={theme.customColor.white} />,
-        color: theme.customColor.yellow,
-    },
-    {
-        text: "O café chega fresquinho até você",
-        icon: <Coffee color={theme.customColor.white} />,
-        color: theme.customColor.purple
-    }
-];
 
 const Container = styled('section')({
     marginTop: '2rem',
     padding: '3rem 0',
 });
 
-const Title = styled('h1')({
+const Title = styled('h1')(({ theme }) => ({
     color: theme.customColor.baseTitle,
     margin: 0,
     ...theme.typography.titleXL
-});
+}));
 
-const Description = styled('p')({
+const Description = styled('p')(({ theme }) => ({
     ...theme.typography.regularL
-})
+}));
 
 const Icon = styled('span')(({ color }) => ({
     display: 'flex',
@@ -51,19 +26,44 @@ const Icon = styled('span')(({ color }) => ({
     padding: '.5rem'
 }));
 
-const IconText = styled('span')({
+const IconText = styled('span')(({ theme }) => ({
     ...theme.typography.regularM
-});
+}));
 
-const Image = styled('img')({
+const Image = styled('img')(({ theme }) => ({
     height: '25rem',
 
     [`@media (max-width: ${theme.breakpoints.values.sm}px)`]: {
-        height: '16rem' 
+        height: '16rem'
     }
-});
+}));
 
 export default function Banner() {
+    const theme = useTheme();
+
+    const items = [
+        {
+            text: "Compra simples e segura",
+            icon: <ShoppingCart color={theme.customColor.white} />,
+            color: theme.customColor.purple,
+        },
+        {
+            text: "Embalagem mantém o café intacto",
+            icon: <Package color={theme.customColor.white} />,
+            color: theme.customColor.baseText
+        },
+        {
+            text: "Entrega rápida e rastreada",
+            icon: <Timer color={theme.customColor.white} />,
+            color: theme.customColor.yellow,
+        },
+        {
+            text: "O café chega fresquinho até você",
+            icon: <Coffee color={theme.customColor.white} />,
+            color: theme.customColor.purple
+        }
+    ];
+
     return (
         <Container>
             <Grid direction="row" container>

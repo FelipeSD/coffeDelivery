@@ -1,12 +1,11 @@
-import styled from "@emotion/styled"
+import { styled } from "@mui/material";
 import Home from "./pages/Home"
-import theme from "./styles/theme"
 
-const Container = styled('div')({
+const Container = styled('div')(({ theme }) => ({
   margin: '0 auto',
   padding: `${theme.spacing(4)}`,
   maxWidth: `${theme.breakpoints.values.lg}px`,
-})
+}));
 
 function App() {
   return (
