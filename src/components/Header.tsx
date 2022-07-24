@@ -11,10 +11,10 @@ const Container = styled('header')({
 
 const Location = styled(Button)(({ theme }) => ({
     textTransform: 'none',
-    backgroundColor: `${theme.customColor.purpleLight}`,
-    color: `${theme.customColor.purple}`,
+    backgroundColor: `${theme.palette.purpleLight}`,
+    color: `${theme.palette.purple}`,
     '&:hover': {
-        backgroundColor: `${theme.customColor.purpleLight}`
+        backgroundColor: `${theme.palette.purpleLight}`
     }
 }));
 
@@ -31,7 +31,7 @@ const Header = () => {
 
             <Stack spacing={2} direction="row" alignItems="center">
                 <Location startIcon={
-                    <MapPin color={theme.customColor.purple} weight="fill" />
+                    <MapPin color={theme.palette.purple} weight="fill" />
                 }>
                     Porto Alegre, RS
                 </Location>

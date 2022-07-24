@@ -1,4 +1,4 @@
-import { Box, IconButton, Stack, useTheme } from "@mui/material";
+import { IconButton, Stack, Typography as Text, useTheme } from "@mui/material";
 import { Minus, Plus } from "phosphor-react";
 
 export default function SelectNumber() {
@@ -11,21 +11,21 @@ export default function SelectNumber() {
             alignItems="center"
             justifyContent="center"
             sx={{
-                backgroundColor: theme.customColor.baseButton,
+                backgroundColor: theme.palette.baseButton,
                 padding: "0.35rem",
                 borderRadius: "0.5rem",
             }}
         >
             <IconButton size="small">
-                <Minus color={theme.customColor.purple} />
+                <Minus color={theme.palette.purple} />
             </IconButton>
 
-            <Box component="span" sx={{ ...theme.typography.regularM }}>
+            <Text variant="regularM" component="span">
                 1
-            </Box>
+            </Text>
 
             <IconButton size="small">
-                <Plus color={theme.customColor.purple} />
+                <Plus color={theme.palette.purple} />
             </IconButton>
         </Stack>
     )

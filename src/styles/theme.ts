@@ -1,24 +1,24 @@
 import { createTheme } from "@mui/material/styles";
 
 interface CustomColor {
-    yellowDark: string;
-    yellow: string;
-    yellowLight: string;
+    yellowDark?: string;
+    yellow?: string;
+    yellowLight?: string;
 
-    purpleDark: string;
-    purple: string;
-    purpleLight: string;
+    purpleDark?: string;
+    purple?: string;
+    purpleLight?: string;
 
-    baseTitle: string;
-    baseSubtitle: string;
-    baseText: string;
-    baseLabel: string;
-    baseHover: string;
-    baseButton: string;
-    baseInput: string;
-    baseCard: string;
-    bg: string;
-    white: string;
+    baseTitle?: string;
+    baseSubtitle?: string;
+    baseText?: string;
+    baseLabel?: string;
+    baseHover?: string;
+    baseButton?: string;
+    baseInput?: string;
+    baseCard?: string;
+    bg?: string;
+    white?: string;
 }
 
 interface CustomTypography {
@@ -28,45 +28,73 @@ interface CustomTypography {
     fontWeight: string;
 }
 
+interface TypographyTypes {
+    titleXL: CustomTypography;
+    titleL: CustomTypography;
+    titleM: CustomTypography;
+    titleS: CustomTypography;
+    titleXS: CustomTypography;
+    regularL: CustomTypography;
+    regularM: CustomTypography;
+    regularS: CustomTypography;
+    boldL: CustomTypography;
+    boldM: CustomTypography;
+}
+
 declare module '@mui/material/styles' {
-    interface Theme {
-        customColor: CustomColor;
-    }
-    interface ThemeOptions {
-        customColor: CustomColor;
-    }
+    interface Theme extends CustomColor { }
+    interface ThemeOptions extends CustomColor { }
+}
+
+declare module '@mui/material/styles/createPalette' {
+    interface Palette extends CustomColor { }
+    interface PaletteOptions extends CustomColor { }
+    interface PaletteColor extends CustomColor { }
 }
 
 declare module '@mui/material/styles/createTypography' {
-    interface Typography {
-        titleXL: CustomTypography;
-        titleL: CustomTypography;
-        titleM: CustomTypography;
-        titleS: CustomTypography;
-        titleXS: CustomTypography;
-        regularL: CustomTypography;
-        regularM: CustomTypography;
-        regularS: CustomTypography;
-        boldL: CustomTypography;
-        boldM: CustomTypography;
+    interface Typography extends TypographyTypes { }
+    interface TypographyOptions extends TypographyTypes { }
+}
+
+declare module "@mui/material/Typography" {
+    interface TypographyPropsVariantOverrides {
+        titleXL: true;
+        titleL: true;
+        titleM: true;
+        titleS: true;
+        titleXS: true;
+        regularL: true;
+        regularM: true;
+        regularS: true;
+        boldL: true;
+        boldM: true;
     }
-    
-    interface TypographyOptions {
-        titleXL: CustomTypography;
-        titleL: CustomTypography;
-        titleM: CustomTypography;
-        titleS: CustomTypography;
-        titleXS: CustomTypography;
-        regularL: CustomTypography;
-        regularM: CustomTypography;
-        regularS: CustomTypography;
-        boldL: CustomTypography;
-        boldM: CustomTypography;
+
+    interface TypographyPropsColorOverrides {
+        yellowDark?: true;
+        yellow?: true;
+        yellowLight?: true;
+
+        purpleDark?: true;
+        purple?: true;
+        purpleLight?: true;
+
+        baseTitle?: true;
+        baseSubtitle?: true;
+        baseText?: true;
+        baseLabel?: true;
+        baseHover?: true;
+        baseButton?: true;
+        baseInput?: true;
+        baseCard?: true;
+        bg?: true;
+        white?: true;
     }
 }
 
 const theme = createTheme({
-    customColor: {
+    palette: {
         yellowDark: "#C47F17",
         yellow: "#DBAC2C",
         yellowLight: "#F1E9C9",

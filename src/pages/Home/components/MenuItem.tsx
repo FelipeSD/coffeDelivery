@@ -1,4 +1,4 @@
-import { Box, Chip, Grid, Stack, styled, useTheme } from "@mui/material";
+import { Box, Chip, Grid, Stack, styled, Typography as Text, useTheme } from "@mui/material";
 import CartButton from "../../../components/CartButton";
 import SelectNumber from "../../../components/SelectNumber";
 
@@ -10,6 +10,7 @@ export interface CoffeeProps {
     image: string;
     tags: string[];
 }
+
 interface MenuItemProps {
     coffee: CoffeeProps;
 }
@@ -17,18 +18,6 @@ interface MenuItemProps {
 const Image = styled('img')({
     margin: '-2rem auto 0 auto',
 });
-
-const Title = styled('h3')(({ theme }) => ({
-    margin: 0,
-    color: theme.customColor.baseSubtitle,
-    ...theme.typography.titleS,
-}));
-
-const Description = styled('p')(({ theme }) => ({
-    textAlign: 'center',
-    color: theme.customColor.baseLabel,
-    ...theme.typography.regularS
-}));
 
 export default function MenuItem({
     coffee: { name, description, price, image, tags },
@@ -52,8 +41,8 @@ export default function MenuItem({
                         sx={{
                             height: '1.31rem',
                             textTransform: 'uppercase',
-                            backgroundColor: theme.customColor.yellowLight,
-                            color: theme.customColor.yellowDark,
+                            backgroundColor: theme.palette.yellowLight,
+                            color: theme.palette.yellowDark,
                             fontSize: '0.625rem',
                             fontWeight: '700',
                         }}
@@ -61,22 +50,22 @@ export default function MenuItem({
                 ))}
             </Stack>
 
-            <Title>{name}</Title>
-            <Description>{description}</Description>
+            <Text variant="titleS" component="h3" color="baseSubtitle" my={1}>
+                {name}
+            </Text>
+            <Text variant="regularS" component="p" color="baseLabel" textAlign="center">
+                {description}
+            </Text>
 
-            <Grid container justifyContent="space-between" alignItems="center" mt={2}>
+            <Grid container justifyContent="space-between" alignItems="center" mt={4}>
                 <Grid item xs={6}>
-                    <Stack direction="row"
-                        spacing={1}
-                        justifyContent="center"
-                        alignItems="center"
-                    >
-                        <Box component="span" sx={{ ...theme.typography.regularS }}>
+                    <Stack direction="row" justifyContent="center" alignItems="center">
+                        <Text variant="regularS" color="palette.baseLabel" pr={".2rem"}>
                             R$
-                        </Box>
-                        <Box component="span" sx={{ ...theme.typography.titleM }}>
+                        </Text>
+                        <Text variant="titleM">
                             {price}
-                        </Box>
+                        </Text>
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>

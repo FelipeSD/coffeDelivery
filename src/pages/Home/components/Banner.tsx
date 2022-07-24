@@ -1,4 +1,4 @@
-import { Grid, Stack, styled, useTheme } from "@mui/material";
+import { Grid, Stack, styled, Typography as Text, useTheme } from "@mui/material";
 import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
 import Cafe from "../../../assets/Cafe.svg";
 
@@ -7,16 +7,6 @@ const Container = styled('section')({
     padding: '3rem 0',
 });
 
-const Title = styled('h1')(({ theme }) => ({
-    margin: 0,
-    color: theme.customColor.baseTitle,
-    ...theme.typography.titleXL
-}));
-
-const Description = styled('p')(({ theme }) => ({
-    ...theme.typography.regularL
-}));
-
 const Icon = styled('span')(({ color }) => ({
     display: 'flex',
     alignItems: 'center',
@@ -24,10 +14,6 @@ const Icon = styled('span')(({ color }) => ({
     borderRadius: '50%',
     backgroundColor: color,
     padding: '.5rem'
-}));
-
-const IconText = styled('span')(({ theme }) => ({
-    ...theme.typography.regularM
 }));
 
 const Image = styled('img')(({ theme }) => ({
@@ -44,41 +30,41 @@ export default function Banner() {
     const items = [
         {
             text: "Compra simples e segura",
-            icon: <ShoppingCart color={theme.customColor.white} />,
-            color: theme.customColor.purple,
+            icon: <ShoppingCart color={theme.palette.white} />,
+            color: theme.palette.purple,
         },
         {
             text: "Embalagem mantém o café intacto",
-            icon: <Package color={theme.customColor.white} />,
-            color: theme.customColor.baseText
+            icon: <Package color={theme.palette.white} />,
+            color: theme.palette.baseText
         },
         {
             text: "Entrega rápida e rastreada",
-            icon: <Timer color={theme.customColor.white} />,
-            color: theme.customColor.yellow,
+            icon: <Timer color={theme.palette.white} />,
+            color: theme.palette.yellow,
         },
         {
             text: "O café chega fresquinho até você",
-            icon: <Coffee color={theme.customColor.white} />,
-            color: theme.customColor.purple
+            icon: <Coffee color={theme.palette.white} />,
+            color: theme.palette.purple
         }
     ];
 
     return (
         <Container>
             <Grid direction="row" container>
-                <Grid item sm={6}>
-                    <Title>
+                <Grid item sm={7}>
+                    <Text variant="titleXL" component="h1" color="baseTitle" mb={2}>
                         Encontre o café perfeito <br />
                         para qualquer hora do dia
-                    </Title>
+                    </Text>
 
-                    <Description>
+                    <Text variant="regularL" component="p">
                         Com o Coffe Delivery você recebe seu café onde estiver,
                         a qualquer hora.
-                    </Description>
+                    </Text>
 
-                    <Grid container my={5}>
+                    <Grid container my={6}>
                         {items.map((item, index) => (
                             <Grid item xs={12} sm={6} key={index}>
                                 <Stack
@@ -88,13 +74,13 @@ export default function Banner() {
                                     alignItems="center"
                                 >
                                     <Icon color={item.color}>{item.icon}</Icon>
-                                    <IconText>{item.text}</IconText>
+                                    <Text variant="regularM">{item.text}</Text>
                                 </Stack>
                             </Grid>
                         ))}
                     </Grid>
                 </Grid>
-                <Grid item sm={6} display="flex" justifyContent="end">
+                <Grid item sm={5} display="flex" justifyContent="end">
                     <Image src={Cafe} alt="Copo de café" />
                 </Grid>
             </Grid>
