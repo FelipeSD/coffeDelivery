@@ -8,8 +8,8 @@ const Container = styled('section')({
 });
 
 const Title = styled('h1')(({ theme }) => ({
-    color: theme.customColor.baseTitle,
     margin: 0,
+    color: theme.customColor.baseTitle,
     ...theme.typography.titleXL
 }));
 
