@@ -13,6 +13,7 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/material": "^5.9.1",
+    "@tanstack/react-location": "^3.7.4",
     "axios": "^0.27.2",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",

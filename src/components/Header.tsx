@@ -1,13 +1,7 @@
-import { Button, Stack, styled, useTheme } from '@mui/material';
+import { Button, Box, Stack, styled, useTheme } from '@mui/material';
 import { MapPin } from 'phosphor-react';
 import Logo from '/Logo.svg';
 import CartButton from './CartButton';
-
-const Container = styled('header')({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-});
 
 const Location = styled(Button)(({ theme }) => ({
     textTransform: 'none',
@@ -26,7 +20,7 @@ const Header = () => {
     const theme = useTheme();
     
     return (
-        <Container>
+        <Box component="header" display="flex" alignItems="center" justifyContent="space-between">
             <LogoImage src={Logo} alt="logo" />
 
             <Stack spacing={2} direction="row" alignItems="center">
@@ -37,7 +31,7 @@ const Header = () => {
                 </Location>
                 <CartButton typeColor="yellow" />
             </Stack>
-        </Container>
+        </Box>
     );
 }
 

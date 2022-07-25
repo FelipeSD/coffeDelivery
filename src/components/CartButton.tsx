@@ -18,8 +18,8 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 const CartButton = ({ typeColor, quantity = 0, classes, ...props }: CardButtonProps) => {
     const theme = useTheme();
 
-    const lightColor = typeColor === 'purple' ? theme.palette.purpleLight : theme.palette.yellowLight;
-    const darkColor = typeColor === 'purple' ? theme.palette.purpleDark : theme.palette.yellowDark;
+    const lightColor = typeColor === 'purple' ? theme.palette.purpleDark : theme.palette.yellowLight;
+    const darkColor = typeColor === 'purple' ? theme.palette.white : theme.palette.yellowDark;
 
     return (
         <StyledBadge badgeContent={quantity}>

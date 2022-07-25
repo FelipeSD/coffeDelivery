@@ -60,7 +60,7 @@ export default function MenuItem({
             <Grid container justifyContent="space-between" alignItems="center" mt={4}>
                 <Grid item xs={6}>
                     <Stack direction="row" justifyContent="center" alignItems="center">
-                        <Text variant="regularS" color="palette.baseLabel" pr={".2rem"}>
+                        <Text variant="regularS" color="baseText" pr={".2rem"}>
                             R$
                         </Text>
                         <Text variant="titleM">

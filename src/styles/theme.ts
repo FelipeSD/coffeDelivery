@@ -4,11 +4,9 @@ interface CustomColor {
     yellowDark?: string;
     yellow?: string;
     yellowLight?: string;
-
     purpleDark?: string;
     purple?: string;
     purpleLight?: string;
-
     baseTitle?: string;
     baseSubtitle?: string;
     baseText?: string;
@@ -75,11 +73,9 @@ declare module "@mui/material/Typography" {
         yellowDark?: true;
         yellow?: true;
         yellowLight?: true;
-
         purpleDark?: true;
         purple?: true;
         purpleLight?: true;
-
         baseTitle?: true;
         baseSubtitle?: true;
         baseText?: true;
@@ -98,11 +94,9 @@ const theme = createTheme({
         yellowDark: "#C47F17",
         yellow: "#DBAC2C",
         yellowLight: "#F1E9C9",
-
         purpleDark: "#4B2995",
         purple: "#8047F8",
         purpleLight: "#EBE5F9",
-
         baseTitle: "#272221",
         baseSubtitle: "#403937",
         baseText: "#574F4D",
