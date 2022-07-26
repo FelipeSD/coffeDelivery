@@ -14,7 +14,7 @@ export default function Address() {
                 icon={<MapPinLine color={theme.palette.yellowDark} />}
             />
 
-            <Grid container my={4} spacing={2} >
+            <Grid container mt={4} spacing={2} >
                 <Grid item sm={12} md={4}>
                     <Input placeholder="CEP" />
                 </Grid>

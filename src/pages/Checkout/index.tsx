@@ -1,9 +1,7 @@
 import { Box, Grid, Typography as Text } from "@mui/material";
-import { CreditCard } from "phosphor-react";
 import Header from "../../components/Header";
-import Input from "../../components/Input";
-import SelectItem from "../../components/SelectItem";
 import Address from "./components/Address";
+import Payment from "./components/Payment";
 
 export default function Checkout() {
     return (
@@ -17,6 +15,7 @@ export default function Checkout() {
                     </Text>
 
                     <Address />
+                    <Payment />
                 </Grid>
                 <Grid item sm={12} md={4}>
                     <Text variant="titleXS">
@@ -28,8 +27,6 @@ export default function Checkout() {
                     </Box>
                 </Grid>
             </Grid>
-            
-            <SelectItem text="Cartão de crédito" icon={<CreditCard />}  />            
         </>
     )
 }
