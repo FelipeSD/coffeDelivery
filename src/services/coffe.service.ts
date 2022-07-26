@@ -13,7 +13,6 @@ const coffeeService = {
                 resolve(coffeList);
             }).catch(error => {
                 console.log(error);
-                reject(error);
             });
         });
     }

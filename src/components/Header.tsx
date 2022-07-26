@@ -2,6 +2,7 @@ import { Button, Box, Stack, styled, useTheme } from '@mui/material';
 import { MapPin } from 'phosphor-react';
 import Logo from '/Logo.svg';
 import CartButton from './CartButton';
+import { Link } from '@tanstack/react-location';
 
 const Location = styled(Button)(({ theme }) => ({
     textTransform: 'none',
@@ -18,7 +19,7 @@ const LogoImage = styled('img')({
 
 const Header = () => {
     const theme = useTheme();
-    
+
     return (
         <Box component="header" display="flex" alignItems="center" justifyContent="space-between">
             <LogoImage src={Logo} alt="logo" />
@@ -29,7 +30,9 @@ const Header = () => {
                 }>
                     Porto Alegre, RS
                 </Location>
-                <CartButton typeColor="yellow" />
+                <Link to="/checkout">
+                    <CartButton typeColor="yellow" />
+                </Link>
             </Stack>
         </Box>
     );

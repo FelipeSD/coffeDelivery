@@ -9,7 +9,6 @@ export const styles = (theme: Theme) => ({
     },
     '.card-default': {
         backgroundColor: theme.palette.baseCard,
-        // padding: '2.5rem',
         borderRadius: '0.375rem',
     },
     '.card-styled': {
