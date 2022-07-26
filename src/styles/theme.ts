@@ -170,6 +170,20 @@ const theme = createTheme({
             lineHeight: "1.3rem",
         }
     },
+    components: {
+        MuiButton: {
+            variants: [
+                {
+                    props: { size: "small" },
+                    style: {
+                        fontWeight: "400",
+                        fontSize: "0.75rem",
+                        lineHeight: "1.2rem",
+                    }
+                }
+            ]
+        }
+    }
 });
 
 export default theme;

@@ -3,7 +3,7 @@ import Routes from "./routes";
 
 const Container = styled('main')(({ theme }) => ({
   margin: '0 auto',
-  padding: `${theme.spacing(4)}`,
+  padding: `0 ${theme.spacing(4)}`,
   maxWidth: `${theme.breakpoints.values.lg}px`,
 }));
 

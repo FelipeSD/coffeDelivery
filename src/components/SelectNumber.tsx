@@ -7,7 +7,6 @@ export default function SelectNumber() {
     return (
         <Stack
             direction="row"
-            // spacing={1}
             alignItems="center"
             justifyContent="center"
             sx={{

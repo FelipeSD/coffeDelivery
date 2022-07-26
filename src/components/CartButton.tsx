@@ -23,8 +23,7 @@ const CartButton = ({ typeColor, quantity = 0, classes, ...props }: CardButtonPr
 
     return (
         <StyledBadge badgeContent={quantity}>
-            <IconButton
-                {...props}
+            <IconButton {...props}
                 sx={{
                     backgroundColor: lightColor,
                     borderRadius: '6px',
