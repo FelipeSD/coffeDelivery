@@ -9,7 +9,7 @@ interface LegendProps {
 }
 
 export default function Legend({ title, description, icon }: LegendProps) {
-    const styledIcon = cloneElement(icon, { size: 22 });
+    const styledIcon = cloneElement(icon, { size: '22px' });
 
     return (
         <Stack direction="row" spacing={1}>

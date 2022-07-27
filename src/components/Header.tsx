@@ -22,7 +22,10 @@ const Header = () => {
 
     return (
         <Box component="header" display="flex" alignItems="center" justifyContent="space-between" py={4}>
-            <LogoImage src={Logo} alt="logo" />
+            <Link to="/">
+                <LogoImage src={Logo} alt="logo" />
+            </Link>
+            
             <Stack spacing={2} direction="row" alignItems="center">
                 <Location startIcon={<MapPin color={theme.palette.purple} weight="fill" />}>
                     Porto Alegre, RS

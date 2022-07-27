@@ -25,7 +25,7 @@ const Tip = styled("p")(({ theme }) => ({
     fontWeight: "400",
 }));
 
-export default function Input({ placeholder, tip, ...props }: InputProps) {
+export default function Input({ placeholder, tip, ...rest }: InputProps) {
     return (
         <InputField
             placeholder={placeholder}
@@ -34,7 +34,7 @@ export default function Input({ placeholder, tip, ...props }: InputProps) {
                     <Tip>{tip}</Tip>
                 </InputAdornment>
             }
-            {...props}
+            {...rest}
         />
     )
 }

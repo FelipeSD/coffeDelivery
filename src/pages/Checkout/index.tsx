@@ -1,6 +1,7 @@
-import { Box, Grid, Typography as Text } from "@mui/material";
+import { Grid, Typography as Text } from "@mui/material";
 import Header from "../../components/Header";
 import Address from "./components/Address";
+import Bill from "./components/Bill";
 import Payment from "./components/Payment";
 
 export default function Checkout() {
@@ -8,8 +9,8 @@ export default function Checkout() {
         <>
             <Header />
 
-            <Grid container my={5} columnSpacing={4} >
-                <Grid item sm={12} md={8}>
+            <Grid container my={5} columnSpacing={4}>
+                <Grid item xs={12} md={7}>
                     <Text variant="titleXS">
                         Complete seu pedido
                     </Text>
@@ -17,14 +18,13 @@ export default function Checkout() {
                     <Address />
                     <Payment />
                 </Grid>
-                <Grid item sm={12} md={4}>
+                
+                <Grid item xs={12} md={5}>
                     <Text variant="titleXS">
                         Cafés selecionados
                     </Text>
 
-                    <Box my={2} p={5} className="card-default card-styled">
-                        
-                    </Box>
+                    <Bill />
                 </Grid>
             </Grid>
         </>

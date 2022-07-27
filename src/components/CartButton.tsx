@@ -15,7 +15,7 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
     }
 }));
 
-const CartButton = ({ typeColor, quantity = 0, classes, ...props }: CardButtonProps) => {
+export default function CartButton({ typeColor, quantity = 0, classes, ...rest }: CardButtonProps) {
     const theme = useTheme();
 
     const lightColor = typeColor === 'purple' ? theme.palette.purpleDark : theme.palette.yellowLight;
@@ -23,7 +23,7 @@ const CartButton = ({ typeColor, quantity = 0, classes, ...props }: CardButtonPr
 
     return (
         <StyledBadge badgeContent={quantity}>
-            <IconButton {...props}
+            <IconButton {...rest}
                 sx={{
                     backgroundColor: lightColor,
                     borderRadius: '6px',
@@ -36,5 +36,3 @@ const CartButton = ({ typeColor, quantity = 0, classes, ...props }: CardButtonPr
         </StyledBadge>
     );
 }
-
-export default CartButton;

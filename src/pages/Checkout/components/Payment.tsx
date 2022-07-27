@@ -14,7 +14,7 @@ export default function Payment() {
                 icon={<CurrencyDollar color={theme.palette.purple} />}
             />
 
-            <Stack direction="row" spacing={1} mt={3}>
+            <Stack direction={{xs: "column", md: "row"}} spacing={1} mt={3}>
                 <SelectItem text="Cartão de crédito" icon={<CreditCard />}  />            
                 <SelectItem text="Cartão de débito" icon={<Bank />}  />
                 <SelectItem text="Dinheiro" icon={<Money />} selected />

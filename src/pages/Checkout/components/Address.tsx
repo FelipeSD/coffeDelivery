@@ -14,26 +14,26 @@ export default function Address() {
                 icon={<MapPinLine color={theme.palette.yellowDark} />}
             />
 
-            <Grid container mt={4} spacing={2} >
-                <Grid item sm={12} md={4}>
+            <Grid container mt={2} spacing={2} >
+                <Grid item xs={12} md={4}>
                     <Input placeholder="CEP" />
                 </Grid>
                 <Grid item xs={12}>
                     <Input placeholder="Rua" />
                 </Grid>
-                <Grid item sm={12} md={4}>
+                <Grid item xs={12} md={4}>
                     <Input placeholder="Número" />
                 </Grid>
-                <Grid item sm={12} md={8}>
+                <Grid item xs={12} md={8}>
                     <Input placeholder="Complemento" tip="Opcional" />
                 </Grid>
-                <Grid item sm={12} md={4}>
+                <Grid item xs={12} md={4}>
                     <Input placeholder="Bairro" />
                 </Grid>
-                <Grid item sm={12} md={6}>
+                <Grid item xs={12} md={6}>
                     <Input placeholder="Cidade" />
                 </Grid>
-                <Grid item sm={12} md={2}>
+                <Grid item xs={12} md={2}>
                     <Input placeholder="UF" />
                 </Grid>
             </Grid>
