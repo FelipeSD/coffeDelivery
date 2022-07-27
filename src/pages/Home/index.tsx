@@ -7,8 +7,8 @@ import { CoffeeProps } from "./components/MenuItem";
 
 type LocationGenerics = MakeGenerics<{
   LoaderData: {
-      coffeList: CoffeeProps[];
-      coffe: CoffeeProps;
+    coffeList: CoffeeProps[];
+    coffe: CoffeeProps;
   };
 }>;
 
