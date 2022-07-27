@@ -27,7 +27,7 @@ export const styles = (theme: Theme) => ({
       left: -1,
       right: -1,
       bottom: -1,
-      background: `linear-gradient(to left, #DBAC2C, #8047F8)`,
+      background: `linear-gradient(to left, #8047F8, #DBAC2C)`,
       borderRadius: "0.375rem 2.75rem",
       content: '""',
       zIndex: -1,

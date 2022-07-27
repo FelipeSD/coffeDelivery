@@ -1,10 +1,19 @@
 import { Grid, Typography as Text } from "@mui/material";
+import { Router, useNavigate } from "@tanstack/react-location";
 import Header from "../../components/Header";
 import Address from "./components/Address";
 import Bill from "./components/Bill";
 import Payment from "./components/Payment";
 
 export default function Checkout() {
+    const navigate = useNavigate();
+
+    function handleConfirm() {
+        navigate({
+            to: "/success",
+        })
+    }
+
     return (
         <>
             <Header />
@@ -24,7 +33,7 @@ export default function Checkout() {
                         Cafés selecionados
                     </Text>
 
-                    <Bill />
+                    <Bill onConfirm={handleConfirm} />
                 </Grid>
             </Grid>
         </>

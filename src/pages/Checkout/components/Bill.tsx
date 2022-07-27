@@ -2,8 +2,11 @@ import { Box, Divider, Stack, Typography as Text } from "@mui/material";
 import Button from "../../../components/Button";
 import Item from "./Item";
 
+interface BillProps {
+    onConfirm: () => void;
+}
 
-export default function Bill() {
+export default function Bill({ onConfirm }: BillProps) {
     return (
         <Box my={2} p={5} className="card-default card-styled">
             <Stack direction="column" sx={{ maxHeight: '500px' }}>
@@ -40,7 +43,7 @@ export default function Bill() {
                 </Stack>
             </Stack>
 
-            <Button text="Confirmar pedido" />
+            <Button text="Confirmar pedido" onClick={onConfirm} />
         </Box>
     )
 }

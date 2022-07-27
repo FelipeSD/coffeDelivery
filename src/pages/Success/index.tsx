@@ -16,7 +16,7 @@ export default function Success() {
         Agora é só aguardar que logo o café chegará até você
       </Text>
 
-      <Grid container columnSpacing={10} mt={5}>
+      <Grid container columnSpacing={10} rowSpacing={2} mt={5}>
         <Grid item xs={12} sm={6}>
           <Stack
             className="card-gradient-border"
@@ -52,8 +52,8 @@ export default function Success() {
             </Item>
           </Stack>
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <img src={Illustration} />
+        <Grid item xs={12} sm={5}>
+          <img src={Illustration} width="100%" />
         </Grid>
       </Grid>
     </>
