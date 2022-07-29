@@ -1,7 +1,7 @@
 import { Grid, Typography as Text } from "@mui/material";
 import { useNavigate } from "@tanstack/react-location";
-import Header from "../../components/Header";
 import { useCart } from "../../hooks/useCart";
+import Header from "../../components/Header";
 import Address from "./components/Address";
 import Bill from "./components/Bill";
 import Payment from "./components/Payment";

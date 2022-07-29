@@ -1,6 +1,7 @@
 import { Grid, Stack, Typography as Text } from "@mui/material";
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
 import Illustration from "../../assets/Illustration.svg";
+import GradientBorder from "../../components/GradientBorder";
 import Header from "../../components/Header";
 import Item from "./components/Item";
 
@@ -18,8 +19,7 @@ export default function Success() {
 
       <Grid container columnSpacing={10} rowSpacing={2} mt={5}>
         <Grid item xs={12} sm={6}>
-          <Stack
-            className="card-gradient-border"
+          <GradientBorder
             direction="column"
             spacing={4}
             p={5}
@@ -50,7 +50,7 @@ export default function Success() {
                 <b>Cartão de crédito</b>
               </Text>
             </Item>
-          </Stack>
+          </GradientBorder>
         </Grid>
         <Grid item xs={12} sm={5}>
           <img src={Illustration} width="100%" />

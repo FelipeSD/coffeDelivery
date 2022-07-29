@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Button, Box, Stack, styled, useTheme } from '@mui/material';
 import { MapPin } from 'phosphor-react';
-import Logo from '/Logo.svg';
-import CartButton from './CartButton';
 import { Link } from '@tanstack/react-location';
 import { useCart } from '../hooks/useCart';
+import Logo from '/Logo.svg';
+import CartButton from './CartButton';
 
 const Location = styled(Button)(({ theme }) => ({
     textTransform: 'none',

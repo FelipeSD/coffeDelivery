@@ -1,9 +1,9 @@
-import { MakeGenerics, useMatch } from "@tanstack/react-location";
 import { useState } from "react";
+import { MakeGenerics, useMatch } from "@tanstack/react-location";
+import { CoffeeProps } from "./components/MenuItem";
 import Header from "../../components/Header";
 import Banner from "./components/Banner";
 import Menu from "./components/Menu";
-import { CoffeeProps } from "./components/MenuItem";
 
 type LocationGenerics = MakeGenerics<{
   LoaderData: {

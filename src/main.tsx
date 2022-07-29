@@ -1,9 +1,9 @@
-import { GlobalStyles, ThemeProvider } from '@mui/material'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App'
+import { GlobalStyles, ThemeProvider } from '@mui/material'
 import { styles } from './styles/global'
 import theme from './styles/theme'
+import App from './App'
 
 const inputGlobalStyles = <GlobalStyles styles={styles} />
 

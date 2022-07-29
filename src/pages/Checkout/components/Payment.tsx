@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { Box, Stack, useTheme } from "@mui/material";
 import { Bank, CreditCard, CurrencyDollar, Money } from "phosphor-react";
-import { useState } from "react";
 import SelectItem from "../../../components/SelectItem";
 import Legend from "./Legend";
 

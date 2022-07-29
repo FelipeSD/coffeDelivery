@@ -1,8 +1,8 @@
-import { Box, Divider, Stack, Typography as Text } from "@mui/material";
 import { useEffect, useState } from "react";
-import Button from "../../../components/Button";
+import { Box, Divider, Stack, Typography as Text } from "@mui/material";
 import { useCart } from "../../../hooks/useCart";
 import { toNumber, toString } from "../../../Utils";
+import Button from "../../../components/Button";
 import Item from "./Item";
 
 interface BillProps {
@@ -14,7 +14,7 @@ export default function Bill({ onConfirm }: BillProps) {
     const { cart, total } = useCart();
 
     const totalItems = toString(total);
-    const totalDelivery = toString(total * 0.1 + 10);
+    const totalDelivery = toString(total * 0.1);
 
     useEffect(() => {
         setTotalBill(total + toNumber(totalDelivery));

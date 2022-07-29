@@ -1,8 +1,8 @@
-import { Box, Chip, Grid, Snackbar, Stack, styled, Typography as Text, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
+import { Box, Chip, Grid, Snackbar, Stack, styled, Typography as Text, useTheme } from "@mui/material";
+import { useCart } from "../../../hooks/useCart";
 import CartButton from "../../../components/CartButton";
 import SelectNumber from "../../../components/SelectNumber";
-import { useCart } from "../../../hooks/useCart";
 
 export interface CoffeeProps {
     id: number;
