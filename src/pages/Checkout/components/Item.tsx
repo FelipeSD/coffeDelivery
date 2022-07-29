@@ -1,13 +1,16 @@
+import { useEffect, useState } from "react";
 import { Box, Button, Grid, Stack, styled, Typography, useTheme } from "@mui/material";
 import { Trash } from "phosphor-react";
+import { useCart } from "../../../hooks/useCart";
+import { toNumber, toString } from "../../../Utils";
 import SelectNumber from "../../../components/SelectNumber";
 
 interface ItemProps {
-    title: string;
+    id: number;
+    name: string;
     image: string;
     price: string;
     quantity: number;
-    onRemove: () => void;
 }
 
 const Image = styled('img')(({ theme }) => ({
@@ -24,8 +27,24 @@ const RemoveButton = styled(Button)(({ theme }) => ({
     }
 }));
 
-export default function Item({ image, title, price, quantity, onRemove }: ItemProps) {
+export default function Item({ image, name, price, quantity, id }: ItemProps) {
     const theme = useTheme();
+    const { removeFromCart, addToCart } = useCart();
+    const [total, setTotal] = useState(0);
+    const [newQuantity, setNewQuantity] = useState(quantity);
+
+    function handleRemove() {
+        removeFromCart(id);
+    }
+
+    function handleQuantity(qtd: number) {
+        setNewQuantity(qtd);
+        addToCart({ id, price, name, image, quantity: qtd });
+    }
+
+    useEffect(() => {
+        setTotal(newQuantity * toNumber(price));
+    }, [newQuantity, price]);
 
     return (
         <Grid container justifyContent="space-between">
@@ -34,15 +53,16 @@ export default function Item({ image, title, price, quantity, onRemove }: ItemPr
                     <Image src={image} />
                     <Box>
                         <Typography variant="regularM">
-                            {title}
+                            {name}
                         </Typography>
 
                         <Stack direction="row" spacing={1} mt={1}>
-                            <SelectNumber quantity={quantity} />
+                            <SelectNumber quantity={newQuantity} onChange={handleQuantity} />
 
                             <RemoveButton
                                 size="small"
                                 startIcon={<Trash color={theme.palette.purple} />}
+                                onClick={handleRemove}
                             >
                                 Remover
                             </RemoveButton>
@@ -57,7 +77,7 @@ export default function Item({ image, title, price, quantity, onRemove }: ItemPr
                 sx={{ display: { xs: "none", sm: 'block' } }}
             >
                 <Typography component="span" variant="boldM" color="baseText">
-                    R$ {price}
+                    R$ {toString(total)}
                 </Typography>
             </Grid>
         </Grid>

@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react';
 import { Button, Box, Stack, styled, useTheme } from '@mui/material';
 import { MapPin } from 'phosphor-react';
 import Logo from '/Logo.svg';
 import CartButton from './CartButton';
 import { Link } from '@tanstack/react-location';
+import { useCart } from '../hooks/useCart';
 
 const Location = styled(Button)(({ theme }) => ({
     textTransform: 'none',
@@ -19,9 +21,50 @@ const LogoImage = styled('img')({
 
 const Header = () => {
     const theme = useTheme();
+    const { cart } = useCart();
+
+    const [position, setPosition] = useState<'static' | 'fixed'>('static');
+    const [scrollY, setScrollY] = useState(0);
+
+    const handleScroll = () => {
+        setScrollY(window.scrollY);
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (scrollY > 500) {
+            setPosition('fixed');
+        } else {
+            setPosition('static');
+        }
+    }, [scrollY]);
 
     return (
-        <Box component="header" display="flex" alignItems="center" justifyContent="space-between" py={4}>
+        <Box
+            // position={position}
+            component="header"
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            py={4}
+            sx={{
+                position: position,
+                zIndex: 1,
+                top: 0,
+                left: theme.spacing(4),
+                right: theme.spacing(4),
+                backgroundColor: theme.palette.bg,
+                // transform effect
+                transition: 'all 0.3s ease-in-out',
+                transform: position
+            }}
+        >
             <Link to="/">
                 <LogoImage src={Logo} alt="logo" />
             </Link>
@@ -31,7 +74,7 @@ const Header = () => {
                     Porto Alegre, RS
                 </Location>
                 <Link to="/checkout">
-                    <CartButton typeColor="yellow" />
+                    <CartButton typeColor="yellow" quantity={cart?.length} />
                 </Link>
             </Stack>
         </Box>

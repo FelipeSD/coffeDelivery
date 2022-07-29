@@ -3,10 +3,19 @@ import { Minus, Plus } from "phosphor-react";
 
 interface SelectNumberProps {
     quantity?: number;
+    onChange?: (quantity: number) => void;
 }
 
-export default function SelectNumber({ quantity = 1 }: SelectNumberProps) {
+export default function SelectNumber({ quantity = 1, onChange }: SelectNumberProps) {
     const theme = useTheme();
+    
+    function handleIncrement() {
+        onChange && onChange(quantity + 1);
+    }
+
+    function handleDecrement() {
+        onChange && onChange(quantity - 1);
+    }
 
     return (
         <Stack
@@ -19,7 +28,10 @@ export default function SelectNumber({ quantity = 1 }: SelectNumberProps) {
                 borderRadius: "0.5rem",
             }}
         >
-            <IconButton size="small">
+            <IconButton 
+                disabled={quantity <= 1}
+                size="small" 
+                onClick={handleDecrement}>
                 <Minus color={theme.palette.purple} />
             </IconButton>
 
@@ -27,7 +39,7 @@ export default function SelectNumber({ quantity = 1 }: SelectNumberProps) {
                 {quantity}
             </Text>
 
-            <IconButton size="small">
+            <IconButton size="small" onClick={handleIncrement}>
                 <Plus color={theme.palette.purple} />
             </IconButton>
         </Stack>

@@ -1,12 +1,14 @@
-import { Box, Chip, Grid, Stack, styled, Typography as Text, useTheme } from "@mui/material";
+import { Box, Chip, Grid, Snackbar, Stack, styled, Typography as Text, useTheme } from "@mui/material";
+import { useEffect, useState } from "react";
 import CartButton from "../../../components/CartButton";
 import SelectNumber from "../../../components/SelectNumber";
+import { useCart } from "../../../hooks/useCart";
 
 export interface CoffeeProps {
     id: number;
     name: string;
     description: string;
-    price: number;
+    price: string;
     image: string;
     tags: string[];
 }
@@ -19,10 +21,38 @@ const Image = styled('img')({
     margin: '-2rem auto 0 auto',
 });
 
-export default function MenuItem({
-    coffee: { name, description, price, image, tags },
-}: MenuItemProps) {
+export default function MenuItem({ coffee }: MenuItemProps) {
+    const { name, description, price, image, tags } = coffee;
+    const { cart, addToCart } = useCart();
     const theme = useTheme();
+
+    const [quantity, setQuantity] = useState(1);
+    const [openSnack, setOpenSnack] = useState(false);
+
+    function handleQuantity(quantity: number) {
+        setQuantity(quantity);
+    }
+
+    function handleAddToCart() {
+        addToCart({
+            ...coffee,
+            quantity,
+        });
+
+        setOpenSnack(true);
+
+        setTimeout(() => {
+            setOpenSnack(false);
+        }, 3000);
+    }
+
+    useEffect(() => {
+        // get quantity from cart
+        const itemIndex = cart?.findIndex(item => item.id === coffee.id);
+        if (itemIndex !== -1) {
+            setQuantity(cart[itemIndex].quantity);
+        }
+    }, []);
 
     return (
         <Box className="card-default card-styled" sx={{
@@ -74,11 +104,17 @@ export default function MenuItem({
                         justifyContent="center"
                         alignItems="center"
                     >
-                        <SelectNumber />
-                        <CartButton typeColor="purple" />
+                        <SelectNumber quantity={quantity} onChange={handleQuantity} />
+                        <CartButton typeColor="purple" onClick={handleAddToCart} />
                     </Stack>
                 </Grid>
             </Grid>
+
+            <Snackbar 
+                message={`Adicionado ao carrinho: ${name} (${quantity})`} 
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                open={openSnack}
+            />
         </Box>
     )
 }

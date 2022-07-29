@@ -1,7 +1,7 @@
-import { Button, styled, useTheme } from "@mui/material";
+import { Button, ButtonProps, styled, useTheme } from "@mui/material";
 import { cloneElement, ReactElement } from "react";
 
-interface SelectItemProps {
+interface SelectItemProps extends ButtonProps {
     text: string;
     icon: ReactElement;
     selected?: boolean;
@@ -21,7 +21,7 @@ const ButtonItem = styled(Button)(({ theme }) => ({
     }
 }));
 
-export default function SelectItem({ text, icon, selected }: SelectItemProps) {
+export default function SelectItem({ text, icon, selected, ...rest }: SelectItemProps) {
     const theme = useTheme();
     const styledIcon = cloneElement(icon, {
         color: theme.palette.purple,
@@ -32,6 +32,7 @@ export default function SelectItem({ text, icon, selected }: SelectItemProps) {
             size="small"
             className={selected ? "selected" : ""}
             startIcon={styledIcon}
+            {...rest}
         >
             {text}
         </ButtonItem>

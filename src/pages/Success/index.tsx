@@ -1,8 +1,8 @@
-import { Box, Grid, Stack, Typography as Text } from "@mui/material";
-import Header from "../../components/Header";
-import Illustration from "../../assets/Illustration.svg";
-import Item from "./components/Item";
+import { Grid, Stack, Typography as Text } from "@mui/material";
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
+import Illustration from "../../assets/Illustration.svg";
+import Header from "../../components/Header";
+import Item from "./components/Item";
 
 export default function Success() {
   return (

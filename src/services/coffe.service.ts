@@ -5,7 +5,7 @@ const coffeeService = {
     fetch: () => {
         return new Promise<CoffeeProps[]>((resolve, reject) => {
             api.get('/coffee').then(response => {
-                const coffeList = response.data.map((coffee: CoffeeProps) => ({
+                const coffeList = response.data.map((coffee: any) => ({
                     ...coffee,
                     price: coffee.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })
                 }));
