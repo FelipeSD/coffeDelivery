@@ -25,9 +25,9 @@ const CardStack = styled(Stack)(({ theme }) => ({
   },
 }));
 
-export default function GradientBorder({ children }: GradientBorderProps) {
+export default function GradientBorder({ children, ...rest }: GradientBorderProps) {
   return (
-    <CardStack>
+    <CardStack {...rest}>
       {children}
     </CardStack>
   );
