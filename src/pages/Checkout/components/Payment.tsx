@@ -3,15 +3,18 @@ import { Box, Stack, useTheme } from "@mui/material";
 import { Bank, CreditCard, CurrencyDollar, Money } from "phosphor-react";
 import SelectItem from "../../../components/SelectItem";
 import Legend from "./Legend";
+import { useFormContext } from "react-hook-form";
 
 export default function Payment() {
     const theme = useTheme();
     const [selected, setSelected] = useState<string>("creditCard");
+    const { setValue } = useFormContext();
 
     function handleSelect(value: string) {
         setSelected(value);
+        setValue("payment", value);
     }
-
+    
     return (
         <Box my={2} p={5} className="card-default">
             <Legend

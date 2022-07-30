@@ -1,6 +1,6 @@
-import { InputAdornment, InputBase, styled } from "@mui/material";
+import { InputAdornment, InputBase, InputBaseProps, styled } from "@mui/material";
 
-interface InputProps {
+interface InputProps extends InputBaseProps {
     placeholder: string;
     tip?: string;
 }
@@ -25,7 +25,7 @@ const Tip = styled("p")(({ theme }) => ({
     fontWeight: "400",
 }));
 
-export default function Input({ placeholder, tip, ...rest }: InputProps) {
+export default function Input({ placeholder, tip, ...props }: InputProps) {
     return (
         <InputField
             placeholder={placeholder}
@@ -34,7 +34,7 @@ export default function Input({ placeholder, tip, ...rest }: InputProps) {
                     <Tip>{tip}</Tip>
                 </InputAdornment>
             }
-            {...rest}
+            {...props}
         />
     )
 }

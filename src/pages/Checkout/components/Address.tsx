@@ -1,7 +1,33 @@
 import { Box, Grid, Typography as Text, useTheme } from "@mui/material";
 import { MapPinLine } from "phosphor-react";
+import { Controller, useFormContext } from "react-hook-form";
 import Input from "../../../components/Input";
 import Legend from "./Legend";
+
+interface InputAddressProps {
+    placeholder: string;
+    name: string;
+}
+
+const InputAddress = ({ placeholder, name }: InputAddressProps) => {
+    const { control } = useFormContext();
+
+    return (
+        <Controller
+            name={name}
+            control={control}
+            render={({ field: { onChange, onBlur, name, ref } }) => (
+                <Input
+                    placeholder={placeholder}
+                    name={name}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    inputRef={ref}
+                />
+            )}
+        />
+    );
+}
 
 export default function Address() {
     const theme = useTheme();
@@ -16,25 +42,46 @@ export default function Address() {
 
             <Grid container mt={2} spacing={2} >
                 <Grid item xs={12} md={4}>
-                    <Input placeholder="CEP" />
+                    <InputAddress
+                        name="zip"
+                        placeholder="CEP"
+                    />
                 </Grid>
                 <Grid item xs={12}>
-                    <Input placeholder="Rua" />
+                    <InputAddress
+                        name="road"
+                        placeholder="Rua"
+                    />
                 </Grid>
                 <Grid item xs={12} md={4}>
-                    <Input placeholder="Número" />
+                    <InputAddress
+                        name="number"
+                        placeholder="Número"
+                    />
                 </Grid>
                 <Grid item xs={12} md={8}>
-                    <Input placeholder="Complemento" tip="Opcional" />
+                    <InputAddress
+                        name="complement"
+                        placeholder="Complemento"
+                    />
                 </Grid>
                 <Grid item xs={12} md={4}>
-                    <Input placeholder="Bairro" />
+                    <InputAddress
+                        name="neighborhood"
+                        placeholder="Bairro"
+                    />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Input placeholder="Cidade" />
+                    <InputAddress
+                        name="city"
+                        placeholder="Cidade"
+                    />
                 </Grid>
                 <Grid item xs={12} md={2}>
-                    <Input placeholder="UF" />
+                    <InputAddress
+                        name="state"
+                        placeholder="Estado"
+                    />
                 </Grid>
             </Grid>
         </Box>

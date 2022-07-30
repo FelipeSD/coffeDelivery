@@ -5,11 +5,7 @@ import { toNumber, toString } from "../../../Utils";
 import Button from "../../../components/Button";
 import Item from "./Item";
 
-interface BillProps {
-    onConfirm: () => void;
-}
-
-export default function Bill({ onConfirm }: BillProps) {
+export default function Bill() {
     const [totalBill, setTotalBill] = useState(0);
     const { cart, total } = useCart();
 
@@ -52,7 +48,7 @@ export default function Bill({ onConfirm }: BillProps) {
                 </Stack>
             </Stack>
 
-            <Button text="Confirmar pedido" onClick={onConfirm} />
+            <Button text="Confirmar pedido" type="submit" />
         </Box>
     )
 }
