@@ -18,20 +18,20 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 export default function CartButton({ typeColor, quantity = 0, classes, ...rest }: CardButtonProps) {
     const theme = useTheme();
 
-    const lightColor = typeColor === 'purple' ? theme.palette.purpleDark : theme.palette.yellowLight;
-    const darkColor = typeColor === 'purple' ? theme.palette.white : theme.palette.yellowDark;
+    const bgColor = typeColor === 'purple' ? theme.palette.purpleDark : theme.palette.yellowLight;
+    const textColor = typeColor === 'purple' ? theme.palette.white : theme.palette.yellowDark;
 
     return (
         <StyledBadge badgeContent={quantity}>
             <IconButton {...rest}
                 sx={{
-                    backgroundColor: lightColor,
+                    backgroundColor: bgColor,
                     borderRadius: '6px',
                     '&:hover': {
-                        backgroundColor: lightColor,
+                        backgroundColor: bgColor,
                     }
                 }}>
-                <ShoppingCart color={darkColor} weight="fill" />
+                <ShoppingCart color={textColor} weight="fill" />
             </IconButton>
         </StyledBadge>
     );
