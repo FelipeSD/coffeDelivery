@@ -60,7 +60,7 @@ export default function Banner() {
                     </Text>
 
                     <Text variant="regularL" component="p">
-                        Com o Coffe Delivery você recebe seu café onde estiver,
+                        Com o Coffee Delivery você recebe seu café onde estiver,
                         a qualquer hora.
                     </Text>
 

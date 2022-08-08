@@ -16,7 +16,7 @@ export default function Routes() {
                     element: <Home />,
                     loader: async () => {
                         return {
-                            coffeList: await coffeeService.fetch()
+                            coffeeList: await coffeeService.fetch()
                         }
                     }
                 },

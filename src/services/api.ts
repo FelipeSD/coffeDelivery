@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'http://192.168.18.6:3000/',
+    baseURL: 'https://my-json-server.typicode.com/FelipeSD/coffeeDelivery',
 });

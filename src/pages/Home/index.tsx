@@ -7,14 +7,14 @@ import Menu from "./components/Menu";
 
 type LocationGenerics = MakeGenerics<{
   LoaderData: {
-    coffeList: CoffeeProps[];
-    coffe: CoffeeProps;
+    coffeeList: CoffeeProps[];
+    coffee: CoffeeProps;
   };
 }>;
 
 export default function Home() {
-  const { data: { coffeList } } = useMatch<LocationGenerics>();
-  const [coffees, setCoffees] = useState<CoffeeProps[] | undefined>(coffeList);
+  const { data: { coffeeList } } = useMatch<LocationGenerics>();
+  const [coffees, setCoffees] = useState<CoffeeProps[] | undefined>(coffeeList);
 
   return (
     <>
